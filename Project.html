@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="Project-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gilroy:wght@400&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<html>
+    <body>
+        <header>
+            <div class="social-icons">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/Instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/LinkedIn%202.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.pinterest.com" target="_blank">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/Pinterest.png" alt="Pinterest">
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/Facebook%20F.png" alt="Facebook">
+                </a>
+            </div>
+            <img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/Logo.svg" alt="Logo" class="logo">
+            <nav>
+                <ul class="nav-buttons">
+                    <li><a href="file:///C:/Users/user/Desktop/UI-UX/Portfolio.html" class="page-name home"
+                            style="font-weight: 700px;">Home</a></li>
+                    <li><a href="#about" class="page-name about">About</a></li>
+                    <li><a href="file:///C:/Users/user/Desktop/UI-UX/Project.html" class="page-name projects">Projects</a>
+                    </li>
+                    <li><a href="file:///C:/Users/user/Desktop/UI-UX/Contact.Html" class="page-name contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <h1 class="title">My Projects</h1>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('All')">All</button>
+                <button class="filter-btn" onclick="filterProjects('UI Design')">UI Design</button>
+                <button class="filter-btn" onclick="filterProjects('Illustration')">Illustration</button>
+                <button class="filter-btn" onclick="filterProjects('Branding')">Branding</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- UI Design Project -->
+                <div class="project-item" data-category="UI Design" onclick="openModal('UI Project 1', [
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Digital%20Agency/Landing%20Page%20Design.jpg',
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Digital%20Agency/second%20page.jpg',
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Digital%20Agency/third%20page.jpg',
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Digital%20Agency/Desitgn%20Sysytem.jpg'
+                ])">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Digital%20Agency/Landing%20Page%20Design.jpg"
+                        alt="UI Project 1">
+                    <div class="overlay">Digital Agency Website</div>
+                </div>
+
+                <!-- UI Design Project -->
+                <div class="project-item" data-category="UI Design" onclick="openModal('UI Project 2', [
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Food%20site/MacBook%20Air%20-%201.jpg',
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Food%20site/Tablet.jpg',
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Food%20site/Mobile.jpg',
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Food%20site/Design%20System.jpg'
+                ])">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Porjects/UI%20Projects/Food%20site/MacBook%20Air%20-%201.jpg"
+                        alt="UI Project 1">
+                    <div class="overlay">Food Site landing</div>
+                </div>
+
+                <!-- Illustration Project -->
+                <div class="project-item" data-category="Illustration" onclick="openModal('Illustration 1', [
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/Illustraton/Artboard.jpg',
+                    'file:///C:/Users/user/Desktop/UI-UX/Porjects/Illustraton/face.jpg'
+                ])">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Porjects/Illustraton/face.jpg" alt="Illustration 1">
+                    <div class="overlay">Illustration 1</div>
+                </div>
+
+                <!-- Branding Project -->
+                <div class="project-item" data-category="Branding" onclick="openModal('Branding Project 1', [
+    'file:///C:/Users/user/Desktop/UI-UX/Projects/Branding/Brand1.jpg',
+    'file:///C:/Users/user/Desktop/UI-UX/Projects/Branding/Brand2.jpg',
+    'file:///C:/Users/user/Desktop/UI-UX/Projects/Branding/Brand3.jpg'
+])">
+                    <img src="file:///C:/Users/user/Desktop/UI-UX/Porjects/Illustraton/face.jpg"
+                        alt="Branding Project 1">
+                    <div class="overlay">Branding Project 1</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal for Enlarged Project -->
+        <div id="projectModal" class="modal" onclick="closeModal()">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <div id="modalImageContainer" class="modal-image-container"></div>
+            </div>
+        </div>
+
+        <!-- Link to JavaScript File -->
+        <script src="project-script.js"></script>
+
+        <!-- footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>&copy; 2025 Ashutosh Kumar. All Rights Reserved.</p>
+        </div>
+        <div class="footer-center">
+            <ul class="footer-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Project.html">Projects</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <div class="social-icons2">
+                <a href="https://www.instagram.com/aashu_rama/" class="social-icon2" target="_blank"><img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/Instagram.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/ashutosh-kumar98/" class="social-icon2" target="_blank"><img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/LinkedIn%202.png" alt="LinkedIn"></a>
+                <a href="https://in.pinterest.com/AashuRama98/" class="social-icon2" target="_blank"><img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/Pinterest.png" alt="Pinterest"></a>
+                <a href="https://www.facebook.com/profile.php?id=100027607250907" class="social-icon2" target="_blank"><img src="file:///C:/Users/user/Desktop/UI-UX/Home%20Images/Facebook%20F.png" alt="Facebook"></a>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+    </body>
+    </html>
